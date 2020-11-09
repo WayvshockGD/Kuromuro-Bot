@@ -8,6 +8,7 @@ import javax.security.auth.login.LoginException;
 
 import me.wayv.Kuromuro.commands.core.Help;
 import me.wayv.Kuromuro.commands.core.Ping;
+import me.wayv.Kuromuro.commands.core.Stats;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -41,6 +42,7 @@ public class bot extends ListenerAdapter {
         /*listeners*/
         builder.addEventListeners(new Help());
         builder.addEventListeners(new Ping());
+        builder.addEventListeners(new Stats());
         
         /*builder*/
         builder.build();
