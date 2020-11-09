@@ -7,19 +7,22 @@ import java.util.Properties;
 import javax.security.auth.login.LoginException;
 
 import me.wayv.Kuromuro.commands.core.Help;
+import me.wayv.Kuromuro.commands.core.Info;
 import me.wayv.Kuromuro.commands.core.Ping;
 import me.wayv.Kuromuro.commands.core.Stats;
+import me.wayv.Kuromuro.commands.information.Serverinfo;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.ReadyEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.hooks.ListenerAdapter; 
 
 
 public class bot extends ListenerAdapter {
 	public static JDA jda;
-	public static String prefix = "k!";
+	public static String prefix = "Prefix";
+	public static String clientID = "Client ID";
 
 
     public static void main(String[] args) throws LoginException {
@@ -33,6 +36,7 @@ public class bot extends ListenerAdapter {
             }
 
             prop.load(input);
+            
     	
         JDABuilder builder = JDABuilder.createDefault(prop.getProperty("token"));
         builder.addEventListeners(new bot());
@@ -43,6 +47,8 @@ public class bot extends ListenerAdapter {
         builder.addEventListeners(new Help());
         builder.addEventListeners(new Ping());
         builder.addEventListeners(new Stats());
+        builder.addEventListeners(new Info());
+        builder.addEventListeners(new Serverinfo());
         
         /*builder*/
         builder.build();
@@ -52,9 +58,11 @@ public class bot extends ListenerAdapter {
         ex.printStackTrace();
     }
     }
+    	
    
 
     public void onReady(ReadyEvent event) {
         System.out.println("Logged in as " + event.getJDA().getSelfUser().getAsTag());
     }
+
 }
