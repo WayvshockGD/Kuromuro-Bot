@@ -23,7 +23,8 @@ public class Help extends ListenerAdapter {
 			EmbedBuilder helpEmbed = new EmbedBuilder();
 			helpEmbed.setColor(Color.MAGENTA);
 			helpEmbed.setTitle("Help");
-			helpEmbed.setDescription("The prefix is: `" + prefix + "`" + "\n=====================\n ```ping | stats ```");
+			helpEmbed.setDescription("The prefix is: `" + prefix + "`" + "\n=====================\n ```yaml\nCore: \n===================== \n[ping | stats | info] \n===================== \nInformation: \n=====================\n"
+					+ "[serverinfo] \n```");
 			event.getChannel().sendMessage(helpEmbed.build()).queue();
 		}
 			

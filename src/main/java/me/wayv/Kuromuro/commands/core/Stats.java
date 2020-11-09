@@ -16,21 +16,21 @@ public class Stats extends ListenerAdapter {
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
-		/*guilds*/
+		/*Guilds*/
 		long guildCount = event.getJDA().getGuildCache().size();
 		long guildEmoteCount = event.getJDA().getEmoteCache().size();
 		long guildChannelSize = event.getJDA().getTextChannelCache().size();
-		/*shards*/
+		/*Shards*/
 		long shardSize = ShardInfo.SINGLE.getShardTotal();
 		
 		if (args[0].equalsIgnoreCase(bot.prefix + "stats")) {
 			
 	         event.getChannel().sendMessage("```yaml\n"
-	         		+ "=====["+event.getJDA().getSelfUser().getAsTag()+" Info]==== \n\n"
+	         		+ "=====["+event.getJDA().getSelfUser().getAsTag()+" Stats]==== \n\n"
 	         				+ "===========[shards]========== \n"
 	         				+ "[Size: "+shardSize+"] \n\n"
 	         						+ "===========[Guilds]========== \n"
-	         						+ "[Size: " + guildCount + "] [Emote Size: "+guildEmoteCount+"] \n[All Guild Channels: "+guildChannelSize+"]\n\n" 
+	         						+ "[Size: " + guildCount + "][Emote Size: "+guildEmoteCount+"] \n[All Guild Channels: "+guildChannelSize+"]\n\n" 
 	         								+ "```").queue();
 			
 		}
